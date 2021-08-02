@@ -23,10 +23,10 @@ Following each assumptions, I calculated requirments and souring the parts for t
 
 3. The Jetson Nano Developer Kit 4G version may have enough power to handle sensor data colletion, and motion control functions. Using usb - servo adapter to provide the PWM signals. 2 channels at this point. Necessary HAT or termial blocks will added to the system. 
 
-4.1 Print and cutout 50 unique designed visual land mark traffic cones.
-4.2 Using Waterproof Network camera for visual detection, everything other than grass will raise alarm. 
-4.3 Using Livox Lidar for distance detection, provide warming zone, slow down zone and stop zone detection. Maximun 27m detection range. 
-4.4 Build SLAM function to improve location accuracy to sub meter level. Allow the cutting path overlap together. 
+4 Print and cutout 50 unique designed visual land mark traffic cones.
+Using Waterproof Network camera for visual detection, everything other than grass will raise alarm. 
+Using Livox Lidar for distance detection, provide warming zone, slow down zone and stop zone detection. Maximun 27m detection range. 
+Build SLAM function to improve location accuracy to sub meter level. Allow the cutting path overlap together. 
 
 5. Central controller: One to many robots in mind. Doing one to one control at this point. Manually setup the geofencing, the outside perameters and inside islands, placing the traffic cones, generate the detailed cutting path and send to the robot. Robot should run on their own and supervised by the central controller. Controller can disable the robot, or take over the control via Wifi link.  
 
