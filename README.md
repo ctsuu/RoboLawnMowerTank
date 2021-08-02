@@ -23,7 +23,7 @@ Following each assumptions, I calculated requirments and souring the parts for t
 
 3. The Jetson Nano Developer Kit 4G version may have enough power to handle sensor data colletion, and motion control functions. Using usb - servo adapter to provide the PWM signals. 2 channels at this point. Necessary HAT or termial blocks will added to the system. 
 
-4 Print and cutout 50 unique designed visual land mark traffic cones.
+4. Print and cutout 50 unique designed visual land mark traffic cones.
 Using Waterproof Network camera for visual detection, everything other than grass will raise alarm. 
 Using Livox Lidar for distance detection, provide warming zone, slow down zone and stop zone detection. Maximun 27m detection range. 
 Build SLAM function to improve location accuracy to sub meter level. Allow the cutting path overlap together. 
