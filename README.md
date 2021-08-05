@@ -30,4 +30,23 @@ Build SLAM function to improve location accuracy to sub meter level. Allow the c
 
 5. Central controller: One to many robots in mind. Doing one to one control at this point. Manually setup the geofencing, the outside perameters and inside islands, placing the traffic cones, generate the detailed cutting path and send to the robot. Robot should run on their own and supervised by the central controller. Controller can disable the robot, or take over the control via Wifi link.  
 
+6. Machine operation safety is the first priority to ensuring the all possible protective measures have been taken to prevent injury to workers in and around the automated machine. It also protecting the machine from misuse by the operator. My design concept is referenced to standards ISO 13849-1 and IEC 61508. Hard wired relay control panel are used for safety control. Controllers with redundancy of design and fault detection. Networks with fault checking and diagnostics. 
 
+## Risk Assessment and Reduction
+We will host a section to determining hazards in the machine control system and level of hazards.The documentation of process us maintained. Machine operators, maintenance personnel and management will be involved. Everyone's point of view should be evaluated. The following guidlines are used:
+
+1. Defines the limitations of the machine: Intended use, foreseeable misuse, expected training and experience, possible exposure to machine hazards.
+
+2. Defines hazardous conditions: Mechanical hazards(Severing, entanglement, crushing, vibration), Thermal hazards(Burns), Environmental hazards(Sound, chemical, radiation)
+
+3. Risk factors are determined and risk estimated: Degree of harm and Porbability
+
+4. Risk Evaluation: Determine if risk must be reduced.
+
+5. Take Safety measures according to ISO 12100: Remove dangers, reduce exposure frequency, maintain visibility, add guarding, employ redundant systems with fault checking.
+
+6. Repeat the entire process until all risk are within acceptiable level. 
+
+The control system is designed to meet ISO 13849-1 Category 3. - Single fault does not lead to loss of safety function. Fault shall be detected at or before next demand. The safety component has MTTFd (Mean Time to Dangerous Failure) of 20 years(Medium). It also has DCavg (Average Diagnostic Coverage) at 95% (Medium), Therefore, overall system performance level is PLd. 
+
+Based on the risk scores, This machine have to meet IEC 61508 SIL 3, the safety component have to meet PFH (Probability of failure per hour) >=10^-8  to < 10^07. 
