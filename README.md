@@ -61,6 +61,6 @@ I breakdown the programming scope of work into the following:
 1. Motion control. (Input: Planned waypoints, in Long, Lat, Heading, Speed, Accelation, tool up/down ... format, EGO position, in Long, Lat format; Onboard processing: Calculate the best route that can reach all the waypoints as close as possible and go as smooth as possible. Also can handle the communication delay 300ms up to 3 seconds. Output(Pending, waiting for actual machine arrive: Left/Right, Forward, Stop, Up/Down).
 2. Main Loop: 100ms spin cycle. Allign with GPS update interval, Lidar frame rate, camera frame rate, watch dog program. The onboard Controller time is synchronized to GPS time. All Lidar point cloud data, IMU data, and camera image and other sensor data are timestamped and recorded in ROS bag format for future development.
 3. GPS/GNSS/IMU unit: Integrate the ROS driver into the system via USB or RS232 port or GPIO pins. Time Sync. Output: Current location Long Lat format. IMU raw input at 100HZ to 200HZ, accelation and gyro reading for XYZ axises, use sensor rack slide motion(Pan, Tilt, and slide) to calibrate the IMU data. Output: The past smooth trajectory up to 200 points/second, transformed into UTM format. 
-4. Lidar/SLAM: Integrate the ROS driver into the system, configure the Ethernet port. Input: Up to 480000 points/sec, dual return at 15$\text{\textdegree}$  
+4. Lidar/SLAM: Integrate the ROS driver into the system, configure the Ethernet port. Input: Up to 480000 points/sec, dual return at 15º
 5. 
 6. 
