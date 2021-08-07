@@ -50,3 +50,7 @@ We will host a section to determining hazards in the machine control system and 
 The control system is designed to meet ISO 13849-1 Category 3. - Single fault does not lead to loss of safety function. Fault shall be detected at or before next demand. The safety component has MTTFd (Mean Time to Dangerous Failure) of 20 years(Medium). It also has DCavg (Average Diagnostic Coverage) at 95% (Medium), Therefore, overall system performance level is PLd. 
 
 Based on the risk scores, This machine have to meet IEC 61508 SIL 3, the safety component have to meet PFH (Probability of failure per hour) >=10^-8  to < 10^07. 
+
+## Programming
+The demo system should use hybrid ROS/ROS2 environment. My onboard computer is Nvidia Jetson Family. Original candidate is Jetson Nano 4GB Version, because of the native Linux Ubuntu environment, support ROS, and Rasberry Pi GPIO interface. Possible implemtation of GPU accelerated Point Cloud Library and opencv library. Hardware vendor may provide ROS2 driver already, it will greatly shorting the developing duration. There are more previous developed motion planning node, Vision sensor, Lidar and Mapping , PID controller, MPC controller, GNSS module, sensor fusion node etc need be tested on ROS or ROS platform. ![Block+Diagram1](https://user-images.githubusercontent.com/22917810/128586890-db5f8164-6a25-4559-944e-855cb03bf478.png)
+ 
