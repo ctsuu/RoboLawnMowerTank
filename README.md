@@ -22,6 +22,7 @@ Following each assumptions, I calculated requirments and souring the parts for t
 2. 300mmx400mmx170mm waterproof box is suitable for the controller enclosure. See details of all components in the cost estimate. 
 
 3. The Jetson Nano Developer Kit 4G version may have enough power to handle sensor data colletion, and motion control functions. Using usb - servo adapter to provide the PWM signals. 2 channels at this point. Necessary HAT or termial blocks will added to the system. 
+![jetson-nano-dev-kit-top-r6-HR-B01](https://user-images.githubusercontent.com/22917810/128587074-09dd9710-b499-4af4-850c-7c8590eb90f8.png)
 
 4. Print and cutout 50 unique designed visual land mark traffic cones.
 Using Waterproof Network camera for visual detection, everything other than grass will raise alarm. 
