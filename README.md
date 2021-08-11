@@ -66,3 +66,38 @@ I breakdown the programming scope of work into the following:
 6. Sensor fusion/SLAM: Input: Timestamped Landmarks point clouds transformed into UTM format. Timestamped RGB image of those landmarks with geotag on UTM format. Current state: Position, Speed, heading, surrounding features. Processing: Overlap the Landmark points clouds to create surrounding heatmap, create the equations for the conditions, solve the equations, get the current location estimate. Output: Current location estimate within 0.3m accuracy. 
 7. Geofence training/setting: Walk or drive alone the boundary, about 50mx50m area, 1 hour operation time, send the GPS recording to Master device, the central controller. Walk alone the inside island such as tree, pad, or something else you don't want to run over it. The central controller will smooth out and connect the boundarys and islands, calculate the inside path with offsets to the boundary, with some overlap on each path. Output: Serized waypoints, UTM or Long Lat format. 
 8. Central controller / User interface: Include Ruggedized tablet, GPS and Wifi on the trailer, to remote control the lawn mower. View the real time video feed. Modify the geofence and regenarate the path. Logging the completed work. 
+
+## Summary Scope of Work/Deliverables
+1. Meetings and tours with client to review the Project Scope
+2. Mechanical design and drawings for the assembly
+3. Electrical design and drawings for safety devices
+4. Assembly, programming and testing of the device at my shop
+5. Commissioning and testing the device at field
+6. Training on how to operate new device
+7. Complete documentation including spare part list
+
+## Factory Acceptance Test
+FAT will be held at my shop to demonstrate and prove operation of the device
+
+## Commissioning / Site Acceptance Test
+Site Commissioning Service will be provided. 4G vision will be responsible for on-site preparation work, traffic cones and trailers. 
+
+## Training
+Training will be provided during the commissioning and SAT phase. 
+
+## Support Service
+Additional support service are available as per agreeed rate schedule. 
+
+## Drafting / As-built Drawings
+Mechanical drawings: Sensor mount, tooling
+Electrical drawings: Panel wiring, interface cable pinouts.
+
+## Spare Part List
+Upon Request
+
+## Questions and Clarifications
+Estimated delivery will be 8 months. Due to the availability of certain parts and software developments:
+- The lawn Mower (2-3 months delivery)
+- Electrical/Control Panel (Short supply of computer chips)
+
+
