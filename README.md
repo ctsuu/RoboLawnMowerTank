@@ -100,4 +100,5 @@ Estimated delivery will be 8 months. Due to the availability of certain parts an
 - The lawn Mower (2-3 months delivery)
 - Electrical/Control Panel (Short supply of computer chips)
 
-
+## Cost Estimate
+See attached spreadsheet
