@@ -6,6 +6,14 @@ To build a autonomous gas powered tank track drived lawn mower that aim for the 
 
 The lawn mower based on KB750-8A model, 130KG, cutting path 550mm wide. Moving speed 0-6km/hr. Slope 0-30 deg. Remove control range 100m. Engine output 7.5 horse power.
 
+There are some key technologies we are going to explore and implement are list as following:
+1. Active Agent
+2. Simplify perception problems
+3. Minimalist design of autonomous behaviours
+4. Hardware and Software Co-design
+
+Let's 
+
 ## Assumption: 
 I haven't see the real machine yet, therefore, I made some necessary assumptions in order to complete the high lever control system design. 
 
