@@ -6,13 +6,33 @@ To build a autonomous gas powered tank track drived lawn mower that aim for the 
 
 The lawn mower based on KB750-8A model, 130KG, cutting path 550mm wide. Moving speed 0-6km/hr. Slope 0-30 deg. Remove control range 100m. Engine output 7.5 horse power.
 
+The capabilities of this robot can be categorized as: (a) Navigation, (b) HMI (Human Machine Interface) and (c) Physical interation or Manipulation.
+
+Navigation involves moving around in space without running into static or dynamatic obstacles such as trees and humans. HMI involves the communication between robot and controller, help the operator to understand the robot position. Finally, physical interaction or manipulation involves the ability to delivery the payload, such as mowing, moving or other tasks.
+
 There are some key technologies we are going to explore and implement are list as following:
 1. Active Agent
 2. Simplify perception problems
 3. Minimalist design of autonomous behaviours
 4. Hardware and Software Co-design
 
-Let's 
+Navigation, specifically tailored towards Outdoor Unmanned Gound Vehicels could be simplified into 2D space. However, the elevation and slope change is considered, but the robot is always remain on the ground. The fundamental questions are: Where are I? and What is the hazard when I am moving? and Where should I go next? 
+
+We define the robot as an active agent. Compare to living agents such as birds, bees and dogs, the living beings have been solving these problems with relative ease and extreme efficiency. My concepte is to building specific task driven sensor-motor loops cell(combination of perception, planning and control). Each cell is a completed closed loop motion control system, with perception feedbacks. The cell will solve the task in local frame. The complicated task can utilize multiple of such sensor-motor loops.
+
+The most common approach of UGV(unmanned Ground Vechicle) is based on the sensing the world in 3D. This philosopy revolves around obtaining a 3D map first and then utilizing for various tasks. However, a lot of tasks rarely require a full 3D map of the scene to be accomplished. Also the system is not minimalist. On the contrary, my tailored solution adaptes the design philosophy based on the current operating constraints of computation, sensing and power budget. The result will not directly transferable to different agent morphologies, but it is generally more power-efficient for the set of tasks it is designed for. 
+
+The complicated real world task will be break down to agent's competence groups(also called behaviours) for eaier design and training the nerual-network. 
+Table 1.1: Minimalist design of autonomous UAV behaviours.
+Competence Passive Approach Active and Task-based Approach
+Kinetic stabilization Optimization of optical flow fields Sensor fusion between optical flow and IMU measurements
+Obstacle avoidance Obtain 3D model and plan accordingly Obtain flow fields and extract relevant information from them
+Segmentation of independently moving objects Optimization of flow fields Fixation and tracking allows detection
+Homing Application of SLAM Learn paths to home from many locations
+Landing Reconstruct 3D model and plan accordingly Perform servoing of landing area and plan appropriate policy
+Pursuit and Avoidance Reconstruct 3D model and plan accordingly Track while in motion
+Integration: Switching between behaviors Easy: The planner interacts with the 3D model Hard: An attention mechanism on ideas switching between behaviors
+
 
 ## Assumption: 
 I haven't see the real machine yet, therefore, I made some necessary assumptions in order to complete the high lever control system design. 
