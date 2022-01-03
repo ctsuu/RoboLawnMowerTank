@@ -23,25 +23,42 @@ We define the robot as an active agent. Compare to living agents such as birds, 
 The most common approach of UGV(unmanned Ground Vechicle) is based on the sensing the world in 3D. This philosopy revolves around obtaining a 3D map first and then utilizing for various tasks. However, a lot of tasks rarely require a full 3D map of the scene to be accomplished. Also the system is not minimalist. On the contrary, my tailored solution adaptes the design philosophy based on the current operating constraints of computation, sensing and power budget. The result will not directly transferable to different agent morphologies, but it is generally more power-efficient for the set of tasks it is designed for. 
 
 The complicated real world task will be break down to agent's competence groups(also called behaviours) for eaier design and training the nerual-network. 
-Table 1.1: Minimalist design of autonomous UAV behaviours.
+
+### Minimalist design of autonomous UGV behaviours.
 Competence Passive Approach Active and Task-based Approach
-Kinetic stabilization Optimization of optical flow fields Sensor fusion between optical flow and IMU measurements
-Obstacle avoidance Obtain 3D model and plan accordingly Obtain flow fields and extract relevant information from them
-Segmentation of independently moving objects Optimization of flow fields Fixation and tracking allows detection
-Homing Application of SLAM Learn paths to home from many locations
-Landing Reconstruct 3D model and plan accordingly Perform servoing of landing area and plan appropriate policy
-Pursuit and Avoidance Reconstruct 3D model and plan accordingly Track while in motion
-Integration: Switching between behaviors Easy: The planner interacts with the 3D model Hard: An attention mechanism on ideas switching between behaviors
+Kinetic stabilization: Optimization of optical flow fields  vs. Sensor fusion between optical flow and IMU measurements
+Obstacle avoidance: Obtain 3D model and plan accordingly vs. Obtain flow fields and extract relevant information from them
+Segmentation of independently moving objects: Optimization of flow fields vs. Fixation and tracking allows detection
+Homing: Application of SLAM vs. Learn paths to home from many locations
+Pursuit and Avoidance: Reconstruct 3D model and plan accordingly vs. Track while in motion
+Integration: Switching between behaviors Easy: The planner interacts with the 3D model vs. Hard: An attention mechanism on ideas switching between behaviors
 
+### Forms of Activeness on a UGV 
+Activeness on a UGV or any robot in general can be accomplished in multiple ways.
+1. By moving the agent itself, 2. By employing an active sensor, 3. By moving a part of
+the agent’s body, 4. By hallucinating active movements.
 
-## Assumption: 
-I haven't see the real machine yet, therefore, I made some necessary assumptions in order to complete the high lever control system design. 
+The first approach, the entier agent moves such that the perception problem become simpler. Such an approach is generally used by smaller robot where moving the entire agent is not very power hungry as compared to adding another sensor by increasing it's weight and computation. 
 
-1. Electrical power supply. The original lawn mower may not have enough battery power to run additional electronic sensors and devices. I consider add a battery holder for a Dewalt DCB 609-2 20V/60V 9.0Ah Battery, and charger. 
-2. Build the Controller enclosure, Power distribution, fuse, DC-DC converter, waterproof connectors, the Emergency stop push button and wire, operation beacon light, GPS and Wifi, on board computer and other parts as needed.
-3. I assume the lawn mower is using generic PWM Radio Control servo, I will manage the output signal is able to drive standard RC servo. One channel for Forward/Backward, one channel for Left/Right. Plus 5 channel digital channels, on and off for cutter up/down.  
-4. I am going to use cameras and lidar to detect obstacle, and unexpected events. Many special designed traffic cones needed to mark the working area for safety and SLAM propose. 
-5. I am going to have a hign spec processing computer off the machine, to handle the initial boundary waypoint setup (Geofencing), the detailed path waypoint(0.2m-0.5m resolution) calculation, and provide base GPS location and Wifi access point. This computer may handle more than one robot in the same area. The computer is mounted on the service truck, the service truck hauls all robots to the working zone, fuel the robots, and charging batterise as needed. 
+The second approach utilizes an active sensor, a sensor which only works when movement is present, such as event camera. They have a higher dynamic range and lower latency compared to classical cameras. 
+
+The third approach brings the change of robot's body morphology to enable simpler perception. Such an approach can be used to make the robot smaller as required while uitlizing a bigger set of sensors. Such an approach is desired when moving the robot is less power efficient than adding additional components to enable the movement of the sensor suite. This project will be implement this approach to reduce amount of sensors, and directy estimating depth and positions. 
+
+The last approach utilizing a method which hallucinates an active observer. The simple example is the headmap of interest areas. Such a method is computationally more expensive but can be utilized when power used computation is far lesser than moving the agent or a part of it. This project will implement this technology as well, by using single Lidar and single camera sensor suite. 
+
+### Hardware and Software Co-design
+“People who are really serious about software should make their own hardware.” by Alan Kay, a pioneer computer scientist quoted in the 1980s. The "Embodied AI" research field is trying to solve this multidimensional optimization problem across different strates(hardware and software). Therefore, we are going to define the size, Weight, Area and Power (SWAP) constrains. 
+
+### Size, Weight, Area and Power
+The first prototype will be based on a tank drive style wheel chair chassis, it will be very close to the target vehicle platform.  
+1. Size. The chassis is 1000mm in length, 600mm in width and 1200mm to 1800mm in height. It can easily go throught most 28-34in wide door ways. The Human Machine Interface, the touch screen can be adjusted at chirdren or adult eye level height. 
+2. Weight. There is not weight constraint. Therefore, we can use Lead-Acid batteries, and desktop PC for maximum power range and computing power. Payload: 300 lbs. 4 point lifting loop. 
+3. Area. The footprint of the robot is 0.6 square meter.
+4. Electrical power supply. 2 - 70AH batteris. The original lawn mower may not have enough battery power to run additional electronic sensors and devices. I consider add a battery holder for a Dewalt DCB 609-2 20V/60V 9.0Ah Battery, and charger. 
+5. Build the Controller enclosure, Power distribution, fuse, DC-DC converter, waterproof connectors, the Emergency stop push button and wire, operation beacon light, GPS and Wifi, on board computer and other parts as needed.
+6. I assume the lawn mower is using generic PWM Radio Control servo, I will manage the output signal is able to drive standard RC servo. One channel for Forward/Backward, one channel for Left/Right. Plus 5 channel digital channels, on and off for cutter up/down.  
+7. I am going to use cameras and lidar to detect obstacle, and unexpected events. Many special designed traffic cones needed to mark the working area for safety and SLAM propose. 
+8. I am going to have a hign spec processing computer off the machine, to handle the initial boundary waypoint setup (Geofencing), the detailed path waypoint(0.2m-0.5m resolution) calculation, and provide base GPS location and Wifi access point. This computer may handle more than one robot in the same area. The computer is mounted on the service truck, the service truck hauls all robots to the working zone, fuel the robots, and charging batterise as needed. 
 
 ## Hign Level Design Concept: 
 Following each assumptions, I calculated requirments and souring the parts for this project. 
