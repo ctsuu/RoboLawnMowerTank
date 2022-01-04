@@ -69,6 +69,8 @@ The active design is useful for low-latency applications such as moving robot. T
 
 The first prototype's smallest size is 600mm width, therefore, it can carry some expensive and bulky passive sensor, but it is better to have some active sensors to reduce the size, cost and overall performance.  
 
+
+
 Following each assumptions, I calculated requirments and souring the parts for this project. 
 1. Given power budget 24V 4A total power consumption for the onboard computer and sensors, a 20V 9AH hour battery can provide 1 hour of run time.
 
