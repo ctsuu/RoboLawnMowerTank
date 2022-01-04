@@ -54,13 +54,21 @@ The first prototype will be based on a tank drive style wheel chair chassis, it 
 1. Size. The chassis is 1000mm in length, 600mm in width and 1200mm to 1800mm in height. It can easily go throught most 28-34in wide door ways. The Human Machine Interface, the touch screen can be adjusted at chirdren or adult eye level height. 
 2. Weight. There is not weight constraint. Therefore, we can use Lead-Acid batteries, and desktop PC for maximum power range and computing power. Payload: 300 lbs. 4 point lifting loop. 
 3. Area. The footprint of the robot is 0.6 square meter.
-4. Electrical power supply. 2 - 70AH batteris. The original lawn mower may not have enough battery power to run additional electronic sensors and devices. I consider add a battery holder for a Dewalt DCB 609-2 20V/60V 9.0Ah Battery, and charger. 
-5. Build the Controller enclosure, Power distribution, fuse, DC-DC converter, waterproof connectors, the Emergency stop push button and wire, operation beacon light, GPS and Wifi, on board computer and other parts as needed.
-6. I assume the lawn mower is using generic PWM Radio Control servo, I will manage the output signal is able to drive standard RC servo. One channel for Forward/Backward, one channel for Left/Right. Plus 5 channel digital channels, on and off for cutter up/down.  
-7. I am going to use cameras and lidar to detect obstacle, and unexpected events. Many special designed traffic cones needed to mark the working area for safety and SLAM propose. 
-8. I am going to have a hign spec processing computer off the machine, to handle the initial boundary waypoint setup (Geofencing), the detailed path waypoint(0.2m-0.5m resolution) calculation, and provide base GPS location and Wifi access point. This computer may handle more than one robot in the same area. The computer is mounted on the service truck, the service truck hauls all robots to the working zone, fuel the robots, and charging batterise as needed. 
+4. Electrical power supply. 2 - 70AH batteris. Up to 15km driving range, max speed 6 MPH, faster then Gas powered tank drive, and 2 hours run time. 
+
+5.The wheel chair platform come with OEM control, try to integrate with standard RC controller. 
+
+6. Build the Controller enclosure, Power distribution, fuse, DC-DC converter, waterproof connectors, the Emergency stop push button and wire, operation beacon light, GPS and Wifi, on board computer and other parts as needed.
+7. I assume the lawn mower is using generic PWM Radio Control servo, I will manage the output signal is able to drive standard RC servo. One channel for Forward/Backward, one channel for Left/Right. Plus 5 channel digital channels, on and off for cutter up/down.  
+8. I am going to use cameras and lidar to detect obstacle, and unexpected events. Many special designed traffic cones needed to mark the working area for safety and SLAM propose. 
+9. I am going to have a hign spec processing computer off the machine, to handle the initial boundary waypoint setup (Geofencing), the detailed path waypoint(0.2m-0.5m resolution) calculation, and provide base GPS location and Wifi access point. This computer may handle more than one robot in the same area. The computer is mounted on the service truck, the service truck hauls all robots to the working zone, fuel the robots, and charging batterise as needed. 
 
 ## Hign Level Design Concept: 
+
+The active design is useful for low-latency applications such as moving robot. The active mechanism on a large enough robot(with enough SWAP constraints for a myriad of sensors) can act as a failure mechanism when one or more of the sensors fail. The active mechanism also can move to explore the world to gather more information for a confident preduction. 
+
+The first prototype's smallest size is 600mm width, therefore, it can carry some expensive and bulky passive sensor, but it is better to have some active sensors to reduce the size, cost and overall performance.  
+
 Following each assumptions, I calculated requirments and souring the parts for this project. 
 1. Given power budget 24V 4A total power consumption for the onboard computer and sensors, a 20V 9AH hour battery can provide 1 hour of run time.
 
